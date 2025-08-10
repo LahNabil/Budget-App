@@ -1,1 +1,43 @@
+# === Global Ignores ===
 .env
+.DS_Store
+Thumbs.db
+
+# === Java/Maven (budget-api) ===
+# Build artifacts
+budget-api/target/
+*.class
+*.jar
+
+# IDE files (STS/IntelliJ/VS Code)
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# === Angular/Node (budget-ui) ===
+# Build/output folders
+budget-ui/dist/
+budget-ui/tmp/
+budget-ui/out-tsc/
+budget-ui/.angular/cache
+
+# Dependencies
+budget-ui/node_modules/
+npm-debug.log
+yarn-error.log
+
+# Testing/coverage
+budget-ui/coverage/
+testem.log
