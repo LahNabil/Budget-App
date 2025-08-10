@@ -1,0 +1,51 @@
+<div class="dashboard-wrapper">
+
+  <!-- Title & Controls -->
+  <div class="dashboard-header">
+    <div>
+      <h2 class="title">Home</h2>
+      <p class="subtitle">Overview of your monthly financial activity.</p>
+    </div>
+
+    <div class="select-container">
+      <label for="budgetSelect" class="select-label">Choose a Budget</label>
+      <select id="budgetSelect" (change)="onBudgetChange($event)">
+        <option value="">Current Month (Default)</option>
+        <option *ngFor="let budget of budgets" [value]="budget.id">
+          {{ budget.month }}/{{ budget.year }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Top Grid Row (Two Cards) -->
+  <div class="charts-row">
+    <!-- Left Chart -->
+    <div class="card small-card">
+      <div class="card-header">
+        <h3>Expenses by Category</h3>
+        <span>Current Month</span>
+      </div>
+      <app-budget-chart [budgetId]="selectedBudgetId"></app-budget-chart>
+    </div>
+
+    <!-- Right Chart -->
+    <div class="card small-card">
+      <div class="card-header">
+        <h3>Income vs Expenses</h3>
+        <span>Tracking performance</span>
+      </div>
+      <app-budget-bar-chart [budgetId]="selectedBudgetId"></app-budget-bar-chart>
+    </div>
+  </div>
+
+  <!-- Full Width Chart -->
+  <div class="card full-width-card">
+    <div class="card-header">
+      <h3>Real vs Expected Transactions</h3>
+      <span>Forecast comparison</span>
+    </div>
+    <app-budget-line-chart [budgetId]="selectedBudgetId"></app-budget-line-chart>
+  </div>
+
+</div>
