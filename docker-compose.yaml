@@ -35,6 +35,8 @@ services:
   frontend:
     container_name: angular-budget
     build: ./budget-ui
+    depends_on:
+      - backend
     ports:
       - '80:80'
     networks:
